@@ -13,7 +13,7 @@ public class SimpleController {
 
 	@RequestMapping("/helloworld")
 	public ModelAndView hello() {
-		String helloWorldMessage = "CheersBhai";
+		String helloWorldMessage = "Cheers";
 		return new ModelAndView("hello", "message", helloWorldMessage);
 	}
 
