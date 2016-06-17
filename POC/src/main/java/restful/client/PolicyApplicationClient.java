@@ -9,6 +9,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.apache.log4j.Logger;
+
+import utils.CommonUtils;
 import utils.JsonToPojoConverter;
 import webSrc.model.Policy;
 
@@ -35,10 +38,11 @@ public class PolicyApplicationClient {
 	public PolicyApplicationClient() {
 		// TODO Auto-generated constructor stub
 	}
-
+	private static final Logger logger = Logger.getLogger(PolicyApplicationClient.class);
 	public Policy getPolicyDataOSP(String policyNumber) {
 		
-		String url = "http://01hw561672:8183/cxf/client/status/policy/" + policyNumber;
+		String url = CommonUtils.createWebServiceURL(policyNumber);
+		logger.info("WebServiceURL triggered is: " + url);
 		String resposeAsString = "";
 		
 	/*	
@@ -77,8 +81,10 @@ public class PolicyApplicationClient {
 		  rd.close();
 		  conn.disconnect();
 		  resposeAsString = sb.toString();
+		  logger.info("Json response recived: " + resposeAsString);
 		} catch (Exception e){
 			e.printStackTrace();
+			logger.error("Error in doing the web service CALL:", e);
 		}
 	return JsonToPojoConverter.convertFromJson(resposeAsString, Policy.class);
 		
