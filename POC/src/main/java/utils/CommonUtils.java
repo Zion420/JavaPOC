@@ -16,7 +16,8 @@ public class CommonUtils {
 	public static String createWebServiceURL(String policyNumber){
 		String formedURL = "";
 		String iPAddress = getIpAddress();
-		formedURL = "http://"+iPAddress + ":8183/service/client/status/policy/" + policyNumber;
+		/*"http://"+iPAddress + ":8183/service/client/status/policy/" + policyNumber;*/
+		formedURL =  "http://"+iPAddress + ":8183/cxf/client/status/policy/" + policyNumber;
 		return formedURL;
 	}
 	public static String getIpAddress() {
