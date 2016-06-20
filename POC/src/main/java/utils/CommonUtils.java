@@ -17,7 +17,7 @@ public class CommonUtils {
 		String formedURL = "";
 		String iPAddress = getIpAddress();
 		/*"http://"+iPAddress + ":8183/service/client/status/policy/" + policyNumber;*/
-		formedURL =  "http://"+iPAddress + ":8183/cxf/client/status/policy/" + policyNumber;
+		formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/policy/" + policyNumber;
 		return formedURL;
 	}
 	public static String getIpAddress() {
