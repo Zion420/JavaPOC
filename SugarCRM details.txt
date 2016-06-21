@@ -1,0 +1,74 @@
+
+Rest API:
+
+http://localhost:9191/cxf/sugar/account/details/{id}
+
+
+
+Arup Profile sugar Oauth token - b041284c-3648-2b9d-d50b-5762608d3872
+
+
+
+SouSugarCRM - http://rmeckk6948.trial.sugarcrm.eu/rest/v10/oauth2/token
+
+ArupSugarCRM - http://jrqmeb6048.trial.sugarcrm.eu/rest/v10/oauth2/token
+
+------------------------------------------------------------------------------------------------------------POST
+http://jrqmeb6048.trial.sugarcrm.eu/rest/v10/oauth2/token
+
+
+{ "grant_type":"password", "client_id":"sugar", "client_secret":"", "username":"jim", "password":"jim", "platform":"base" }
+
+
+{
+  "access_token": "ab61aa03-69a5-c973-89c2-5762728c66e8",
+  "expires_in": 3600,
+  "token_type": "bearer",
+  "scope": null,
+  "refresh_token": "abd797ad-9e7f-f781-aa13-5762726ce780",
+  "refresh_expires_in": 1209600,
+  "download_token": "ac70b2ba-b304-1bf0-83a9-5762722065c4"
+}
+
+--------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------POST
+http://jrqmeb6048.trial.sugarcrm.eu/rest/v10/Accounts
+
+
+
+In Header - 
+
+OAuth-Token - ab61aa03-69a5-c973-89c2-5762728c66e8
+
+
+{ "name":"Ilish Palace", "account_type":"Customer", "description":"My Example Account", "email":[{"email_address":"souvikroy@ilish.com"}] }
+
+
+Account id for arup monda
+8fd239fb-7a88-5b31-9513-57694312cef9
+
+Huge Output
+
+only one field will be required and that is id - 306da08d-9b44-6c42-37b5-57628ba61523
+
+http://jrqmeb6048.trial.sugarcrm.eu/rest/v10/Accounts/8fd239fb-7a88-5b31-9513-57694312cef9?fields=name%2Cdate_entered%2Cdate_modified%2Cmodified_user_id%2Cmodified_by_name
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------GET
+
+http://jrqmeb6048.trial.sugarcrm.eu/rest/v10/Accounts/{Id returned in the previous huge output}
+
+
+
+  "id": "8fd239fb-7a88-5b31-9513-57694312cef9",
+  "name": "Arup Mondal",
+  "date_entered": "2016-06-21T06:39:31-07:00",
+  "date_modified": "2016-06-21T06:39:31-07:00",
+  "modified_user_id": "seed_jim_id",
+  "modified_by_name": "Jim Brennan",
+  "modified_user_link": {
+
