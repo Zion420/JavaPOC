@@ -60,7 +60,7 @@ public class PolicyController {
 		
 	}
 	
-	//IGNORE AND DELETE
+	
 		@RequestMapping(value = "/updatePolicy" , method = RequestMethod.POST)
 		@Produces("application/json")
 		public Response /*Policy*/ updatePolicyDetails(@RequestBody Policy policyUpdateRequest){

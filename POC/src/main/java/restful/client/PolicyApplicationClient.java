@@ -51,8 +51,9 @@ public class PolicyApplicationClient {
 			.getLogger(PolicyApplicationClient.class);
 
 	public Policy getPolicyDataOSP(String policyNumber) {
-		
-		String url = CommonUtils.createWebServiceURL(policyNumber, Constants.RESOURCE_TYPE_POLICY, Constants.SERVICE_TYPE_GET);
+		// "http://01hw561672:8182/cxf/client/status/policy/2000011";
+		String url = CommonUtils.createWebServiceURL(policyNumber,
+				Constants.RESOURCE_TYPE_POLICY, Constants.SERVICE_TYPE_GET);
 		logger.info("WebServiceURL triggered is: " + url);
 		String resposeAsString = "";
 		try {
@@ -85,32 +86,33 @@ public class PolicyApplicationClient {
 
 	public void updatePolicyDetailsOSP(Policy policy) {
 		try {
-			
+
 			String input = JsonToPojoConverter.convertToJson(policy);
-			
+			String url = CommonUtils.createWebServiceURL(
+					policy.getPolicyNumber(), Constants.RESOURCE_TYPE_POLICY,
+					Constants.SERVICE_TYPE_POST);
+			logger.info("WebServiceURL triggered for POST request is: " + url);
 			HttpClient httpClient = new DefaultHttpClient();
 
-		
-			    HttpPost request = new HttpPost("http://01hw561672:8182/cxf/client/status/update/");
-			    StringEntity params =new StringEntity(input);
-			    request.addHeader("content-type", "application/json");
-			    request.addHeader("Accept","application/json");
-			    request.setEntity(params);
-			    HttpResponse response = httpClient.execute(request);
+			// http://01hw561672:8182/cxf/client/status/update/
+			HttpPost request = new HttpPost(url);
+			StringEntity params = new StringEntity(input);
+			request.addHeader("content-type", "application/json");
+			request.addHeader("Accept", "application/json");
+			request.setEntity(params);
+			HttpResponse response = httpClient.execute(request);
 
-			    // MALOY : PLAY WITH REPONSE HERE.
-			
-			
-			
+			// MALOY : PLAY WITH REPONSE HERE.
+
 		} catch (MalformedURLException e) {
 
 			e.printStackTrace();
 
-		  } catch (IOException e) {
+		} catch (IOException e) {
 
 			e.printStackTrace();
 
-		 }
+		}
 
 	}
 

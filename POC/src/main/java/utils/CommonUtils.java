@@ -25,7 +25,7 @@ public class CommonUtils {
 				formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/policy/" + policyNumber;
 				
 			} else if (Constants.SERVICE_TYPE_POST.equalsIgnoreCase(serviceType)){
-				
+				formedURL = "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/update/";
 			} else {
 				////PROVISON TO THROW ERROR
 			}
