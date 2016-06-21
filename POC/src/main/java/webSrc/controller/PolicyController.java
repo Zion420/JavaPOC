@@ -13,9 +13,11 @@ import javax.ws.rs.Produces;
 
 
 
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,6 +60,17 @@ public class PolicyController {
 		
 	}
 	
-	
+	//IGNORE AND DELETE
+		@RequestMapping(value = "/updatePolicy" , method = RequestMethod.POST)
+		@Produces("application/json")
+		public Response /*Policy*/ updatePolicyDetails(@RequestBody Policy policyUpdateRequest){
+			Policy policy = new Policy();
+			policyInformationService.updatePolicyDetails(policyUpdateRequest);//2000011
+			Response response = Response.ok().header("TELL MALOY WHAT YOU WANT IN POST RESPONSE HEADER", "IT WILL BE SENT IN METADATA LIKE THIS").build();
+//			response.
+			return response;
+			
+			
+		}
 
 }

@@ -15,4 +15,6 @@ public interface PolicyInformationService {
 
 	
 public Policy getPolicyDataUsingGet(String policyNumber);
+
+public void updatePolicyDetails(Policy policy);
 }

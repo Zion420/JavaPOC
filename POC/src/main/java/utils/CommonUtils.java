@@ -13,13 +13,42 @@ public class CommonUtils {
 	/**
 	 * 
 	 */
-	public static String createWebServiceURL(String policyNumber){
+	public static String createWebServiceURL(String policyNumber, String resourceName, String serviceType){
+		
 		String formedURL = "";
 		String iPAddress = getIpAddress();
 		//temporary
 		iPAddress = "54.229.52.191";
-		formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/policy/" + policyNumber;
+		if(Constants.RESOURCE_TYPE_POLICY.equalsIgnoreCase(resourceName)){
+			if(Constants.SERVICE_TYPE_GET.equalsIgnoreCase(serviceType)){
+				
+				formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/policy/" + policyNumber;
+				
+			} else if (Constants.SERVICE_TYPE_POST.equalsIgnoreCase(serviceType)){
+				
+			} else {
+				////PROVISON TO THROW ERROR
+			}
+			
+			
+		} else if(Constants.RESOURCE_TYPE_ACCOUNT.equalsIgnoreCase(resourceName)){
+			if(Constants.SERVICE_TYPE_GET.equalsIgnoreCase(serviceType)){
+				
+				
+			} else if (Constants.SERVICE_TYPE_POST.equalsIgnoreCase(serviceType)){
+				
+			} else {
+				////PROVISON TO THROW ERROR
+			}
+			
+			
+		} else {
+			//PROVISON TO THROW ERROR
+		}
+		
+		
 		return formedURL;
+		
 	}
 	public static String getIpAddress() {
 		InetAddress iAddress;

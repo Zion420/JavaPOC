@@ -22,4 +22,9 @@ public class PolicyInformationServiceImpl implements PolicyInformationService{
 		
 }
 
+	@Override
+	public void updatePolicyDetails(Policy policy) {
+		applicationClient.updatePolicyDetailsOSP(policy);
+	}
+
 }
