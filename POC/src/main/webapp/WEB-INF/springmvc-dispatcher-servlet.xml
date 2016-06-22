@@ -12,9 +12,9 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	<bean id="policyInformationService" class="restful.service.impl.PolicyInformationServiceImpl" >
+	<bean id="policyInformationService" class="restful.service.impl.PolicyInformationServiceImpl" />
+	<bean id="acountInformationService" class="restful.service.impl.AccountInformationServiceImpl" />
 		
-	</bean>
 	
 	<mvc:annotation-driven />
 </beans>
