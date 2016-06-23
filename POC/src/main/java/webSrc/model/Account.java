@@ -22,6 +22,8 @@ public class Account {
 	@JsonProperty("modified_user_id")
 	private String modifiedUserId;
 	
+	private String description;
+	
 	/**
 	 * @return the id
 	 */
@@ -81,5 +83,17 @@ public class Account {
 	 */
 	public void setModifiedUserId(String modifiedUserId) {
 		this.modifiedUserId = modifiedUserId;
+	}
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

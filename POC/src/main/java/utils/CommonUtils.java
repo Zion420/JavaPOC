@@ -33,10 +33,10 @@ public class CommonUtils {
 			
 		} else if(Constants.RESOURCE_TYPE_ACCOUNT.equalsIgnoreCase(resourceName)){
 			if(Constants.SERVICE_TYPE_GET.equalsIgnoreCase(serviceType)){
-				formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/sugar/account/details/" + selectionCriteria; //get from ARUP
+				formedURL =  "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/sugar/account/details/" + selectionCriteria; 
 				
 			} else if (Constants.SERVICE_TYPE_POST.equalsIgnoreCase(serviceType)){
-				formedURL = "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/client/status/update/";//get from ARUP
+				formedURL = "http://"+iPAddress + ":" + Constants.CONNECTING_PORT_FUSE +"/cxf/sugar/account/details/update/";
 			} else {
 				////PROVISON TO THROW ERROR
 			}

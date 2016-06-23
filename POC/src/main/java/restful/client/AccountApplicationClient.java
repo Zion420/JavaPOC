@@ -25,14 +25,16 @@ public class AccountApplicationClient {
 	public AccountApplicationClient() {
 		// TODO Auto-generated constructor stub
 	}
+
 	private static final Logger logger = Logger
 			.getLogger(AccountApplicationClient.class);
+
 	public Account getAccountDetails(String accountId) {
 		// "http://01hw561672:8182/cxf/client/status/policy/2000011";
 		String url = CommonUtils.createWebServiceURL(accountId,
 				Constants.RESOURCE_TYPE_ACCOUNT, Constants.SERVICE_TYPE_GET);
 		logger.info("WebServiceURL triggered is: " + url);
-		String resposeAsString = "";
+		String responseAsString = "";
 		try {
 			URL connectingURL = new URL(url);
 			HttpURLConnection conn = (HttpURLConnection) connectingURL
@@ -50,34 +52,37 @@ public class AccountApplicationClient {
 			}
 			rd.close();
 			conn.disconnect();
-			resposeAsString = sb.toString();
-			logger.info("Json response recived: " + resposeAsString);
+			responseAsString = sb.toString();
+
+			logger.info("Json response recived: " + responseAsString);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error("Error in doing the web service CALL:", e);
 		}
-		return JsonToPojoConverter.convertFromJson(resposeAsString,
+		
+		return JsonToPojoConverter.convertFromJson(responseAsString,
 				Account.class);
 
 	}
+
 	public void updateAccountDetails(Account account) {
 		try {
 
 			String input = JsonToPojoConverter.convertToJson(account);
-			String url = CommonUtils.createWebServiceURL(
-					account.getName(), Constants.RESOURCE_TYPE_ACCOUNT,
+			String url = CommonUtils.createWebServiceURL(account.getName(),
+					Constants.RESOURCE_TYPE_ACCOUNT,
 					Constants.SERVICE_TYPE_POST);
 			logger.info("WebServiceURL triggered for POST request is: " + url);
 			HttpClient httpClient = new DefaultHttpClient();
 
-			// http://01hw561672:8182/cxf/client/status/update/
+			
 			HttpPost request = new HttpPost(url);
 			StringEntity params = new StringEntity(input);
 			request.addHeader("content-type", "application/json");
 			request.addHeader("Accept", "application/json");
 			request.setEntity(params);
 			HttpResponse response = httpClient.execute(request);
-
+			logger.info("Response for POST request is: " + response);
 			// MALOY : PLAY WITH REPONSE HERE.
 
 		} catch (MalformedURLException e) {
