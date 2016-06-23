@@ -1,10 +1,11 @@
 package restful.service;
 
+import restful.client.AccountApplicationClient;
 import webSrc.model.Account;
 
 public interface AccountInformationService {
 
-	
-public Account getAccountDetails (String accountName);
+	AccountApplicationClient accountApplicationClient = new  AccountApplicationClient();	
+public Account getAccountDetails (String accountId);
 public void updateAccountDetails (Account account);
 }

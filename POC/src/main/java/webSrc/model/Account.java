@@ -1,13 +1,39 @@
 package webSrc.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
+	private String id;
+	
 	private String name;
-	private String account_type;
-	private String description;
+	
+	@JsonProperty("date_entered")
+	private String dateEntered;
+	
+	@JsonProperty("date_modified")
+	private String dateModified;
+	
+	@JsonProperty("modified_user_id")
+	private String modifiedUserId;
+	
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
 	/**
 	 * @return the name
 	 */
@@ -21,27 +47,39 @@ public class Account {
 		this.name = name;
 	}
 	/**
-	 * @return the account_type
+	 * @return the dateEntered
 	 */
-	public String getAccount_type() {
-		return account_type;
+	public String getDateEntered() {
+		return dateEntered;
 	}
 	/**
-	 * @param account_type the account_type to set
+	 * @param dateEntered the dateEntered to set
 	 */
-	public void setAccount_type(String account_type) {
-		this.account_type = account_type;
+	public void setDateEntered(String dateEntered) {
+		this.dateEntered = dateEntered;
 	}
 	/**
-	 * @return the description
+	 * @return the dateModified
 	 */
-	public String getDescription() {
-		return description;
+	public String getDateModified() {
+		return dateModified;
 	}
 	/**
-	 * @param description the description to set
+	 * @param dateModified the dateModified to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDateModified(String dateModified) {
+		this.dateModified = dateModified;
+	}
+	/**
+	 * @return the modifiedUserId
+	 */
+	public String getModifiedUserId() {
+		return modifiedUserId;
+	}
+	/**
+	 * @param modifiedUserId the modifiedUserId to set
+	 */
+	public void setModifiedUserId(String modifiedUserId) {
+		this.modifiedUserId = modifiedUserId;
 	}
 }

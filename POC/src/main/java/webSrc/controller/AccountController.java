@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import restful.service.AccountInformationService;
 import webSrc.model.Account;
+import webSrc.model.Policy;
 
 @RestController
 public class AccountController {
@@ -23,22 +24,24 @@ public class AccountController {
 	@Autowired
 	AccountInformationService acountInformationService;
 	
-	@RequestMapping(value = "/getAccount/{accountName}" , method = RequestMethod.GET)
+	@RequestMapping(value = "/getAccount/{accountId}" , method = RequestMethod.GET)
 	@Produces("application/json")
-	public Response getAccountDetails(@PathVariable String accountName){
-		logger.info("Intercepted AccountName is : " + accountName);
+	public Response getAccountDetails(@PathVariable String accountId){
+		logger.info("Intercepted AccountId is : " + accountId);
 		Account account = new Account();
-		account = acountInformationService.getAccountDetails(accountName);
+		account = acountInformationService.getAccountDetails(accountId);
 		return  Response.ok(account).build();
 		
 	}
 	
 	@RequestMapping(value = "/updateAccount" , method = RequestMethod.POST)
 	@Produces("application/json")
-	public Response  updateAccountDetails(@RequestBody Account account){
-		logger.info("Intercepted AccountDetails are : " + account);
-		return null;
-		
+	public Response  updateAccountDetails(@RequestBody Account accountUpdateRequest){
+		logger.info("Intercepted AccountDetails are : " + accountUpdateRequest);
+		Account account = new Account();
+		acountInformationService.updateAccountDetails(accountUpdateRequest);
+		Response response = Response.ok().header("TELL MALOY WHAT YOU WANT IN POST RESPONSE HEADER", "IT WILL BE SENT IN METADATA LIKE THIS").build();
+		return response;
 	}
 
 }
