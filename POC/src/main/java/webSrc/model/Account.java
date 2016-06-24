@@ -1,6 +1,5 @@
 package webSrc.model;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,6 +22,8 @@ public class Account {
 	private String modifiedUserId;
 	
 	private String description;
+	
+	private String title;
 	
 	/**
 	 * @return the id
@@ -95,5 +96,17 @@ public class Account {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
