@@ -59,7 +59,7 @@ public class AccountApplicationClient {
 			e.printStackTrace();
 			logger.error("Error in doing the web service CALL:", e);
 		}
-		
+		//responseAsString = "{\r\n  \"id\": \"2000011\",\r\n  \"name\": \"Arup Mondal\",\r\n  \"date_entered\": \"2016-06-23T19:46:51-07:00\",\r\n  \"date_modified\": \"2016-06-23T19:46:51-07:00\",\r\n  \"modified_user_id\": \"seed_jim_id\",\r\n  \"description\": \"Arup Mondal is a new contact\",\r\n  \"title\": \"M r\"\r\n  }";
 		return JsonToPojoConverter.convertFromJson(responseAsString,
 				Account.class);
 
@@ -78,6 +78,7 @@ public class AccountApplicationClient {
 			
 			HttpPost request = new HttpPost(url);
 			StringEntity params = new StringEntity(input);
+			logger.info("Request JSON: " + input);
 			request.addHeader("content-type", "application/json");
 			request.addHeader("Accept", "application/json");
 			request.setEntity(params);

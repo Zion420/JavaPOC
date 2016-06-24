@@ -97,11 +97,12 @@ public class PolicyApplicationClient {
 			// http://01hw561672:8182/cxf/client/status/update/
 			HttpPost request = new HttpPost(url);
 			StringEntity params = new StringEntity(input);
+			logger.info("Input params created are: " + request);
 			request.addHeader("content-type", "application/json");
 			request.addHeader("Accept", "application/json");
 			request.setEntity(params);
 			HttpResponse response = httpClient.execute(request);
-
+			logger.info("Reponse of the WS: " + response);
 			// MALOY : PLAY WITH REPONSE HERE.
 
 		} catch (MalformedURLException e) {
