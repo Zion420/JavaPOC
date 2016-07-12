@@ -18,7 +18,7 @@ public class CommonUtils {
 		String formedURL = "";
 		String iPAddress = getIpAddress();
 		//temporary
-		iPAddress = "54.229.52.191";
+		iPAddress = "54.229.107.3";//"54.229.52.191";
 		if(Constants.RESOURCE_TYPE_POLICY.equalsIgnoreCase(resourceName)){
 			if(Constants.SERVICE_TYPE_GET.equalsIgnoreCase(serviceType)){
 				
